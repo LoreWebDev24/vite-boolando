@@ -41,9 +41,14 @@ footer{
 	color: white;
 	padding: 10px 35px;
 }
+.footer__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
 
 h4 {
-	text-align: center;
+	text-align: left;
 	padding-bottom: 20px;
 }
 
@@ -57,7 +62,11 @@ p > span {
 
 .footer-link {
 	padding-right: 10px;
-	text-align: center;
+	text-align: left;
+}
+
+.container {
+    max-width: 1150px;
 }
 
 </style>

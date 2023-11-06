@@ -3,6 +3,8 @@
     name: 'Header',
     data() {
       return {
+        menusLeft: ['Woman', 'Man', 'Kid'],
+        menusRight: ['Log','Liked','Cart']
       }
     }
   }
@@ -15,9 +17,7 @@
             <div class="row header__row">
                 <div class="col col-2 ">
                     <ul>
-                        <li><a href="">Woman</a></li>
-                        <li><a href="">Man</a></li>
-                        <li><a href="">kid</a></li>
+                        <li v-for="(menuLeft,i) in menusLeft" :key="i"><a href="">{{ menuLeft }}</a></li>
                     </ul>
                 </div>
                 <div class="logo-col">
@@ -25,15 +25,7 @@
                 </div>
                 <div class="col col-2">
                     <ul>
-                        <li>
-                            <a href="#">Log</a>
-                        </li>
-                        <li>
-                            <a href="#">Liked</a>
-                        </li>
-                        <li>
-                            <a href="#">Cart</a>
-                        </li>
+                        <li v-for="(menuRight,i) in menusRight" :key="i"><a href="">{{ menuRight }}</a></li>
                     </ul>
                 </div>
             </div>
@@ -44,7 +36,7 @@
 
 <style scoped>
 
-    header {
+header {
     height: 80px;
     background-color: #FF6900 ;
 	width: 100%;
@@ -55,8 +47,7 @@
 }
 
 .sticky {
-	position: sticky;
-	top: 0;
+	position: fixed;
 	z-index: 999;
 }
 
@@ -78,6 +69,10 @@
 	display: flex;
 	justify-content: center;
 	flex-basis: calc((100% / 12) * 8);
+}
+
+.col-2 {
+	flex-basis: calc((100% / 12) * 2);
 }
 
 </style>
