@@ -18,11 +18,9 @@
 </script>
 
 <template>
-  <div>
     <Header></Header>
     <MainApp></MainApp>
     <Footer></Footer>
-  </div>
 </template>
 
 <style lang="scss">
