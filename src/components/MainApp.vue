@@ -53,8 +53,8 @@
                             </div>
                         </div>
                             <figure>
-                                <img src="./img/2.webp" alt="">
-                                <img class="img-b" src="./img/2b.webp" alt="">
+                                <img src="../../public/img/2.webp" alt="">
+                                <img class="img-b" src="../../public/img/2b.webp" alt="">
                             </figure> 
                         </div>
                         <div class="card-description">
@@ -77,8 +77,8 @@
                             </div>
                         </div>
                             <figure>
-                                <img src="./img/3.webp" alt="">
-                                <img class="img-b" src="./img/3b.webp" alt="">
+                                <img src="../../public/img/3.webp" alt="">
+                                <img class="img-b" src="../../public/img/3b.webp" alt="">
                             </figure> 
                         </div>
                         <div class="card-description">
@@ -104,8 +104,8 @@
                             </div>
                         </div>
                             <figure>
-                                <img src="./img/4.webp" alt="">
-                                <img class="img-b" src="./img/4b.webp" alt="">
+                                <img src="../../public/img/4.webp" alt="">
+                                <img class="img-b" src="../../public/img/4b.webp" alt="">
                             </figure> 
                         </div>
                         <div class="card-description">
@@ -126,8 +126,8 @@
                             NO BADGES
                         </div> -->
                             <figure>
-                                <img src="./img/5.webp" alt="">
-                                <img class="img-b" src="./img/5b.webp" alt="">
+                                <img src="../../public/img/5.webp" alt="">
+                                <img class="img-b" src="../../public/img/5b.webp" alt="">
                             </figure> 
                         </div>
                         <div class="card-description">
@@ -150,8 +150,8 @@
                             </div>
                         </div>
                             <figure>
-                                <img src="./img/6.webp" alt="">
-                                <img class="img-b" src="./img/6b.webp" alt="">
+                                <img src="../../public/img/6.webp" alt="">
+                                <img class="img-b" src="../../public/img/6b.webp" alt="">
                             </figure> 
                         </div>
                         <div class="card-description">

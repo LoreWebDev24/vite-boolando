@@ -1,6 +1,7 @@
 <script>
    import Header from "./components/Header.vue"
    import MainApp from "./components/MainApp.vue"
+   import Footer from "./components/Footer.vue"
   // VUE
   export default {
     data() {
@@ -9,7 +10,8 @@
     },
     components: {
       Header,
-      MainApp
+      MainApp,
+      Footer
 
     }
   }
@@ -20,6 +22,7 @@
   <div>
     <Header></Header>
     <MainApp></MainApp>
+    <Footer></Footer>
   </div>
 </template>
 
