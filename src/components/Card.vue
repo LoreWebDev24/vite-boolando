@@ -2,8 +2,15 @@
   // VUE
       export default {
     name: 'Card',
+	props: {
+		item: {
+			type: Object,
+			required: true
+		}
+      },
     data() {
       return {
+		
       }
     }
   }
@@ -18,22 +25,24 @@
             <p class="heart-size">&#9829;</p>
         </div>
         <div class="badges-wrapper">
-            <div class="price-off just-price-off">
+            <!-- <div class="price-off just-price-off">
                 <span>-50%</span>
-            </div>
+            </div> -->
             <div class="sustainable sustainable-top">
                 <span>Sostenibity</span>
             </div>
         </div>
             <figure>
-                <img src="../../public/img/1.webp" alt="">
-                <img class="img-b" src="../../public/img/1b.webp" alt="">
+                <img :src="'../../public/img/' + item.frontImage" alt="">
+                <img class="img-b" :src="'../../public/img/' + item.backImage" alt="">
             </figure> 
         </div>
         <div class="card-description">
-            <p class="griff">Levi's</p>
-            <p class="item">RELAXED FIT TEE UNISEX</p>
-            <p class="price">14,99 <span>€ 29,99 €</span></p>
+			<ul>
+				<li class="griff">{{item.brand}}</li>
+				<li class="item">{{item.name}}</li>
+				<li class="price">{{item.price}}</li>
+			</ul>
         </div> 
     </div>  
 </div>
@@ -41,6 +50,12 @@
 </template>
 
 <style scoped>
+
+ul {
+	display: flex;
+	flex-direction: column;
+	gap: 1px;
+}
 .card-top {
 	position: relative;
 }
@@ -93,7 +108,7 @@
 }
 
 .price {
-	color: red;
+	color: rgb(128, 17, 17);
 	line-height: 1em ;
 	font-size: 1em;
 	font-weight: bolder;
@@ -101,10 +116,9 @@
 
 .badges-wrapper {
 	position: absolute;
-	bottom: 0;
+	bottom: 10px;
 	display: flex;
 	gap: 5px;
-	
 }
 
 .price-off{

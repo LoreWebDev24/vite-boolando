@@ -1,10 +1,12 @@
 <script>
   // VUE
       import Card from "./Card.vue"
+      import DatabaseJson from "../../db.json"
       export default {
     name: 'AppContent',
     data() {
       return {
+        prodotti: DatabaseJson.products
       }
      
     },
@@ -19,7 +21,7 @@
         <main>
             <div class="container">
                 <div class="row">
-                    <Card v-for="n in 6" :key="n"></Card>
+                    <Card v-for="(prodotto,i) in prodotti" :key="i" :item="prodotto"></Card>
                 </div>
             </div>
         </main>     
