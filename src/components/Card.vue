@@ -21,8 +21,10 @@
 <div class="col-4">
     <div class="card">
         <div class="card-top">
-        <div class="heart">
-            <p class="heart-size">&#9829;</p>
+        <div 
+		class="heart"
+		:class="{ red: item.isInFavorites}">
+            <span class="wrapper heart-size hearth">&#9829;</span>
         </div>
         <div class="badges-wrapper">
             <!-- <div class="price-off just-price-off">
@@ -157,6 +159,11 @@ ul {
 	right: 0;
 	background-color: white;
 	cursor: pointer;
+}
+
+/* UTILITY */
+.red {
+	color: red;
 }
 
 </style>

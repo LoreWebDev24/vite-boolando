@@ -20,7 +20,7 @@ a {
 	cursor: pointer;
 }
 
-span {
+span:not(.wrapper) {
 	color: white;
 	padding-left: 10px;
 	font-size: 17px;
