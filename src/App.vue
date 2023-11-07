@@ -1,7 +1,10 @@
+<!-- LOGIC: -->
 <script>
-   import Header from "./components/Header.vue"
-   import MainApp from "./components/MainApp.vue"
-   import Footer from "./components/Footer.vue"
+// IMPORTS
+
+   import AppHeader from "./components/AppHeader.vue"
+   import AppContent from "./components/AppContent.vue"
+   import AppFooter from "./components/AppFooter.vue"
   // VUE
   export default {
     data() {
@@ -9,20 +12,22 @@
       }
     },
     components: {
-      Header,
-      MainApp,
-      Footer
+      AppHeader,
+      AppContent,
+      AppFooter
     }
   }
 
 </script>
 
+<!-- template -->
 <template>
-    <Header></Header>
-    <MainApp></MainApp>
-    <Footer></Footer>
+    <AppHeader></AppHeader>
+    <AppContent></AppContent>
+    <AppFooter></AppFooter>
 </template>
 
+<!-- style -->
 <style lang="scss">
   @use './styles/master.scss';
 </style>

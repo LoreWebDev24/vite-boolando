@@ -1,13 +1,13 @@
 <script>
+  // VUE
       export default {
-    name: 'Footer',
+    name: 'AppFooter',
     data() {
       return {
       }
     }
   }
 </script>
-
 
 <template>  
        <footer>
@@ -32,7 +32,6 @@
         </footer>
 </template>
 
-
 <style scoped>
 
 footer{
@@ -51,20 +50,10 @@ h4 {
 	text-align: left;
 	padding-bottom: 20px;
 }
-
-p > span {
-	color: black;
-	line-height: 1em ;
-	font-size: 1em;
-	font-weight: bolder;
-	text-decoration-line: line-through;
-}
-
 .footer-link {
 	padding-right: 10px;
 	text-align: left;
 }
-
 .container {
     max-width: 1150px;
 }

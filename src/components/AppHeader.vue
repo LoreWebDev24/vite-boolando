@@ -1,6 +1,7 @@
 <script>
+  // VUE
 export default {
-    name: 'Header',
+    name: 'AppHeader',
     data() {
         return {
             menusLeft: ['Woman', 'Man', 'Kid'],

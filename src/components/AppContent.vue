@@ -1,7 +1,8 @@
 <script>
+  // VUE
       import Card from "./Card.vue"
       export default {
-    name: 'MainApp',
+    name: 'AppContent',
     data() {
       return {
       }
@@ -27,8 +28,9 @@
 
 <style scoped>
 
-    main {
-	padding-top: 150px;
+main {
+	padding-top: 100px;
 	padding-bottom: 50px;
 }
+
 </style>

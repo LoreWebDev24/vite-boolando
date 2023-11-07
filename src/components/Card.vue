@@ -1,4 +1,5 @@
 <script>
+  // VUE
       export default {
     name: 'Card',
     data() {
