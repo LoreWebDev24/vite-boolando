@@ -5,7 +5,7 @@ export default {
     data() {
         return {
             menusLeft: ['Woman', 'Man', 'Kid'],
-            menusRight: ['Log', 'Liked', 'Cart']
+            // menusRight: ['Log', 'Liked', 'Cart']
         }
     }
 }
@@ -17,7 +17,7 @@ export default {
             <div class="row header__row">
                 <div class="col col-2 ">
                     <ul>
-                        <li v-for="(menuLeft, i) in menusLeft" :key="i"><a href="">{{ menuLeft }}</a></li>
+                        <li v-for="(menuLeft, i) in menusLeft" :key="i"><a href="#">{{ menuLeft }}</a></li>
                     </ul>
                 </div>
                 <div class="logo-col">
