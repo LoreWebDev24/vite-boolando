@@ -148,14 +148,6 @@ ul {
 	padding-right: 10px;
 }
 
-.just-sustainable {
-	background-color: #008000 ;
-	color: white;
-	font-weight: bolder;
-	padding-left: 10px;
-	padding-right: 10px;
-}
-
 .heart-size {
 	font-size: 32px;
 	padding-left: 10px;
