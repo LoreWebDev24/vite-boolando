@@ -26,12 +26,14 @@
 		:class="{ red: item.isInFavorites}">
             <span class="wrapper heart-size hearth">&#9829;</span>
         </div>
+		<i class="wrapper-icon fa-solid fa-circle-info"></i>
+		<!-- <div>
+
+		</div> -->
         <div class="badges-wrapper">
-            <!-- <div class="price-off just-price-off">
-                <span>-50%</span>
-            </div> -->
-            <div class="sustainable sustainable-top">
-                <span>Sostenibity</span>
+            <div v-for="(badge,i) in item.badges" :key="i" 
+			:class="(badge.type === 'discount') ? 'price-off' : 'sustainable'">
+                <span>{{badge.value}}</span>
             </div>
         </div>
             <figure>
@@ -121,6 +123,12 @@ ul {
 	bottom: 10px;
 	display: flex;
 	gap: 5px;
+}
+
+.wrapper-icon {
+	position: absolute;
+	top: 10px;
+	left: 10px;
 }
 
 .price-off{
