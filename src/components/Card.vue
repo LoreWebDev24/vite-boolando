@@ -11,6 +11,7 @@
     data() {
       return {
 		
+		
       }
     }
   }
@@ -26,7 +27,7 @@
 		:class="{ red: item.isInFavorites}">
             <span class="wrapper heart-size hearth">&#9829;</span>
         </div>
-		<i class="wrapper-icon fa-solid fa-circle-info"></i>
+		<i @click="$emit('show',item)" class="wrapper-icon fa-solid fa-circle-info"></i>
 		<!-- <div>
 
 		</div> -->
@@ -45,7 +46,7 @@
 			<ul>
 				<li class="griff">{{item.brand}}</li>
 				<li class="item">{{item.name}}</li>
-				<li class="price">{{item.price}}</li>
+				<li class="price">{{item.price}}&euro;</li>
 			</ul>
         </div> 
     </div>  
@@ -129,6 +130,9 @@ ul {
 	position: absolute;
 	top: 10px;
 	left: 10px;
+	cursor: pointer;
+	color: white;
+	font-size: 20px;
 }
 
 .price-off{

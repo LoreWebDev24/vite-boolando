@@ -7,8 +7,20 @@ export default {
   data() {
     return {
       store,
+      open: false,
+      selectedProd: {}
     }
 
+  },
+  methods: {
+    showModal(prodotto) {
+        this.selectedProd = prodotto
+        this.open = true
+      },
+      closeModal() {
+        this.open = false
+        this.selectedPasta = {}
+      }
   },
   components: {
     Card,
@@ -21,19 +33,21 @@ export default {
     <main>
       <div class="container">
         <div class="row">
-          <Card v-for="(prodotto, i) in store.products" :key="i" :item="prodotto"></Card>
+          <Card @show="showModal" v-for="(prodotto, i) in store.products" :key="i" :item="prodotto"></Card>
         </div>
       </div>
 <!-- MODALE -->
       <div v-if="open" class="modal">
       <div class="card">
         <div class="card__header">
-         <img src="" alt="">
-         <i class="fa-solid fa-circle-xmark"></i>
+         <img :src="'../../public/img/' + selectedProd.frontImage" alt="">
         </div>
         <div class="card__body">
-          <p>{{ }}</p>
-          <p>{{ }}</p>
+          <ul>
+            <li><em>{{selectedProd.name}}</em></li>
+            <li><em>{{selectedProd.price}}&euro;</em></li>
+            <li><font-awesome-icon class="color-white" @click="closeModal" :icon="['far', 'circle-xmark']"/></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -48,6 +62,30 @@ main {
   padding-bottom: 50px;
 }
 
+ul {
+  padding-top: 10px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;  
+}
+
+em {
+  font-weight: 700;
+}
+.modal .card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 999;
+  background-color: lightgrey;
+  border-radius: 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.1);
+}
 .modal::after {
   content: '';
   position: fixed;
@@ -55,21 +93,14 @@ main {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 40;
-  background-color: rgba(0,0,0,0.5);
+  z-index: 99;
+  background-color: rgba(0,0,0,0.1);
 }
-.modal .card {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  z-index: 50;
-  background-color: white;
-  border-radius: 20px;
-  padding: 20px;
-  width: 100%;
-  max-width: 500px;
-  box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+
+.color-white {
+  color: red;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 </style>
