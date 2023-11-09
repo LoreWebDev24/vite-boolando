@@ -25,7 +25,10 @@ export default {
                 </div>
                 <div class="col col-2">
                     <ul>
-                        <li v-for="(menuRight, i) in menusRight" :key="i"><a href="">{{ menuRight }}</a></li>
+                        <!-- <li v-for="(menuRight, i) in menusRight" :key="i"><a href="">{{ menuRight }}</a></li> -->
+                        <li><a href="#"><i class="fa-solid fa-user"></i></a></li>
+                        <li><a href="#"><i class="fa-solid fa-heart"></i></a></li>
+                        <li><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -75,4 +78,10 @@ header {
 .col-2 {
     flex-basis: calc((100% / 12) * 2);
 }
+
+ul {
+    display: flex;
+    gap: 40px;
+}
+
 </style>
