@@ -28,9 +28,6 @@
             <span class="wrapper heart-size hearth">&#9829;</span>
         </div>
 		<i @click="$emit('show',item)" class="wrapper-icon fa-solid fa-circle-info"></i>
-		<!-- <div>
-
-		</div> -->
         <div class="badges-wrapper">
             <div v-for="(badge,i) in item.badges" :key="i" 
 			:class="(badge.type === 'discount') ? 'price-off' : 'sustainable'">
