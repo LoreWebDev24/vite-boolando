@@ -1,73 +1,83 @@
 <script>
-  // VUE
-      export default {
-    name: 'Card',
+// VUE
+export default {
+	name: 'Card',
 	props: {
 		item: {
 			type: Object,
 			required: true
 		}
-      },
-    data() {
-      return {
-		
-		
-      }
-    }
-  }
+	},
+	data() {
+		return {
+			fullPrices: []
+		}
+	},
+	created() {
+		for (let i = 0; i < this.item.badges.length; i++) {
+			const currentBadge = this.item.badges[i]
+			if (currentBadge.type === 'discount') {
+				const percentage = Math.abs(parseInt(currentBadge.value)/100) 
+				console.log(percentage);
+				const denominator = 1 - percentage
+				const fullPrice = (this.item.price)/ denominator
+				this.fullPrices.push(fullPrice.toFixed(2))
+			}
+		}
+	}
+}
 </script>
 
 <template>
-
-<div class="col-4">
-    <div class="card">
-        <div class="card-top">
-        <div 
-		class="heart"
-		:class="{ red: item.isInFavorites}">
-            <span class="wrapper heart-size hearth">&#9829;</span>
-        </div>
-		<i @click="$emit('show',item)" class="wrapper-icon fa-solid fa-circle-info"></i>
-        <div class="badges-wrapper">
-            <div v-for="(badge,i) in item.badges" :key="i" 
-			:class="(badge.type === 'discount') ? 'price-off' : 'sustainable'">
-                <span>{{badge.value}}</span>
-            </div>
-        </div>
-            <figure>
-                <img :src="'../../public/img/' + item.frontImage" alt="">
-                <img class="img-b" :src="'../../public/img/' + item.backImage" alt="">
-            </figure> 
-        </div>
-        <div class="card-description">
-			<ul>
-				<li class="griff">{{item.brand}}</li>
-				<li class="item">{{item.name}}</li>
-				<li class="price">{{item.price}}&euro;</li>
-			</ul>
-        </div> 
-    </div>  
-</div>
-
+	<div class="col-4">
+		<div class="card">
+			<div class="card-top">
+				<div class="heart" :class="{ red: item.isInFavorites }">
+					<span class="wrapper heart-size hearth">&#9829;</span>
+				</div>
+				<i @click="$emit('show', item)" class="wrapper-icon fa-solid fa-circle-info"></i>
+				<div class="badges-wrapper">
+					<div v-for="(badge, i) in item.badges" :key="i"
+						:class="(badge.type === 'discount') ? 'price-off' : 'sustainable'">
+						<span>{{ badge.value }}</span>
+					</div>
+				</div>
+				<figure>
+					<img :src="'../../public/img/' + item.frontImage" alt="">
+					<img class="img-b" :src="'../../public/img/' + item.backImage" alt="">
+				</figure>
+			</div>
+			<div class="card-description">
+				<ul>
+					<li class="griff">{{ item.brand }}</li>
+					<li class="item">{{ item.name }}</li>
+					<div class="prices-wrapper">
+					<li class="price">{{ item.price }}&euro;</li>
+					<li v-for="fullPrice in fullPrices" class="price full-price">{{ fullPrice}}&euro;</li>
+					</div>		
+				</ul>
+			</div>
+		</div>
+	</div>
 </template>
 
 <style scoped>
-
 ul {
 	display: flex;
 	flex-direction: column;
 	gap: 1px;
 }
+
 .card-top {
 	position: relative;
 }
 
 .card:hover img {
-	display:none ;
+	display: none;
 }
 
 .card:hover .img-b {
-	display:block ;
+	display: block;
 }
 
 .card:hover .heart-size {
@@ -106,14 +116,19 @@ ul {
 
 .item {
 	font-weight: bolder;
-	line-height: 1.2em ;
+	line-height: 1.2em;
 }
 
 .price {
 	color: rgb(128, 17, 17);
-	line-height: 1em ;
+	line-height: 1em;
 	font-size: 1em;
 	font-weight: bolder;
+}
+
+.price-full {
+	color: red;
+	text-decoration: line-through;
 }
 
 .badges-wrapper {
@@ -132,7 +147,13 @@ ul {
 	font-size: 20px;
 }
 
-.price-off{
+.prices-wrapper {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.price-off {
 	background-color: red;
 	color: white;
 	font-weight: bolder;
@@ -140,8 +161,13 @@ ul {
 	padding-right: 10px;
 }
 
+.full-price {
+	color: red;
+	text-decoration: line-through;
+}
+
 .sustainable {
-	background-color: #008000 ;
+	background-color: #008000;
 	color: white;
 	font-weight: bolder;
 	padding-left: 10px;
@@ -166,5 +192,4 @@ ul {
 .red {
 	color: red;
 }
-
 </style>
