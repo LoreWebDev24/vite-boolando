@@ -10,18 +10,17 @@ export default {
 	},
 	data() {
 		return {
-			fullPrices: []
+			fullPrice: 0
 		}
 	},
 	created() {
 		for (let i = 0; i < this.item.badges.length; i++) {
 			const currentBadge = this.item.badges[i]
 			if (currentBadge.type === 'discount') {
-				const percentage = Math.abs(parseInt(currentBadge.value)/100) 
-				console.log(percentage);
-				const denominator = 1 - percentage
+				const percentageDecimal = Math.abs(parseInt(currentBadge.value)/100) 
+				const denominator = 1 - percentageDecimal
 				const fullPrice = (this.item.price)/ denominator
-				this.fullPrices.push(fullPrice.toFixed(2))
+				this.fullPrice  = fullPrice
 			}
 		}
 	}
@@ -53,7 +52,7 @@ export default {
 					<li class="item">{{ item.name }}</li>
 					<div class="prices-wrapper">
 					<li class="price">{{ item.price }}&euro;</li>
-					<li v-for="fullPrice in fullPrices" class="price full-price">{{ fullPrice}}&euro;</li>
+					<li v-if="fullPrice > 0" class="price full-price">{{ fullPrice.toFixed(2) }}&euro;</li>
 					</div>		
 				</ul>
 			</div>
@@ -62,6 +61,7 @@ export default {
 </template>
 
 <style scoped>
+
 ul {
 	display: flex;
 	flex-direction: column;
@@ -192,4 +192,5 @@ ul {
 .red {
 	color: red;
 }
+
 </style>
